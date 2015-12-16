@@ -15,7 +15,7 @@
  limitations under the License.
 -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.android.directshare"
+    package="com.oosbt.majiang.control"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -26,7 +26,7 @@
         android:theme="@style/DirectShareTheme">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.oosbt.majiang.control.MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -35,7 +35,7 @@
         </activity>
 
         <activity
-            android:name=".SendMessageActivity"
+            android:name="com.oosbt.majiang.control.SendMessageActivity"
             android:label="@string/app_name"
             android:theme="@style/DirectShareDialogTheme">
             <intent-filter>
@@ -49,12 +49,12 @@
         </activity>
 
         <activity
-            android:name=".SelectContactActivity"
+            android:name="com.oosbt.majiang.control.SelectContactActivity"
             android:label="@string/app_name"
             android:theme="@style/DirectShareDialogTheme" />
 
         <service
-            android:name=".SampleChooserTargetService"
+            android:name="com.oosbt.majiang.control.SampleChooserTargetService"
             android:label="@string/app_name"
             android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
             <intent-filter>

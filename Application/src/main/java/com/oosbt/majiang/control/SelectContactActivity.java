@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.directshare;
+package com.oosbt.majiang.control;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -38,7 +38,7 @@ public class SelectContactActivity extends Activity {
      * The action string for Intents.
      */
     public static final String ACTION_SELECT_CONTACT
-            = "com.example.android.directshare.intent.action.SELECT_CONTACT";
+            = "com.oosbt.majiang.control.intent.action.SELECT_CONTACT";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

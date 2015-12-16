@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.directshare;
+package com.oosbt.majiang.control;
 
 /**
  * Provides the list of dummy contacts. This sample implements this as constants, but real-life apps

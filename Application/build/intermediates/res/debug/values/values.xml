@@ -39,7 +39,7 @@
     <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
     <!-- From: file:/C:/Users/Frank/OneDrive/GitHub/AndroidStudioProjects/MaJiangScore/Application/src/main/res/values/base-strings.xml -->
     <eat-comment/>
-    <string name="app_name">DirectShare</string>
+    <string name="app_name">麻将计分</string>
     <!-- From: file:/C:/Users/Frank/OneDrive/GitHub/AndroidStudioProjects/MaJiangScore/Application/src/main/res/values/strings.xml -->
     <eat-comment/>
     <string name="body">Body:</string>

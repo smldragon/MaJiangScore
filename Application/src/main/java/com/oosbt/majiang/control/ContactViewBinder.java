@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.example.android.directshare;
+package com.oosbt.majiang.control;
 
 import android.widget.TextView;
 
