@@ -22,7 +22,8 @@
         This app demonstrates how to implement Direct Share. Use some other app and share a text.
         For your convenience, you can also use the input below to share the text.
     </string>
-    <string name="hello">Hello!</string>
+    <string name="appName">麻将计分</string>
+    <string name="hello">欢迎使用</string>
     <string name="share">Share</string>
     <string name="send_intent_title">Send a message via:</string>
 
