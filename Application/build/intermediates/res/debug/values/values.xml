@@ -37,6 +37,9 @@
     <dimen name="margin_small">8dp</dimen>
     <dimen name="margin_tiny">4dp</dimen>
     <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
+    <!-- From: file:/C:/Users/Frank/OneDrive/GitHub/AndroidStudioProjects/MaJiangScore/Application/src/main/res/values/strings.xml -->
+    <eat-comment/>
+    <string name="appName">麻将计分</string>
     <!-- From: file:/C:/Users/Frank/OneDrive/GitHub/AndroidStudioProjects/MaJiangScore/Application/src/main/res/values/base-strings.xml -->
     <eat-comment/>
     <string name="app_name">麻将计分</string>
@@ -47,7 +50,7 @@
         This app demonstrates how to implement Direct Share. Use some other app and share a text.
         For your convenience, you can also use the input below to share the text.
     </string>
-    <string name="hello">Hello!</string>
+    <string name="hello">欢迎使用</string>
     <string name="hint_body">Edit your message.</string>
     <!-- From: file:/C:/Users/Frank/OneDrive/GitHub/AndroidStudioProjects/MaJiangScore/Application/src/main/res/values/base-strings.xml -->
     <eat-comment/>

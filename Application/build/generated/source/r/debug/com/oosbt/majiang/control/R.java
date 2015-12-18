@@ -166,19 +166,20 @@ containing a value of this type.
         public static final int logo_avatar=0x7f030001;
     }
     public static final class string {
-        public static final int app_name=0x7f080000;
-        public static final int body=0x7f080001;
-        public static final int explanation=0x7f080002;
-        public static final int hello=0x7f080003;
-        public static final int hint_body=0x7f080004;
-        public static final int intro_message=0x7f080005;
-        public static final int message_sent=0x7f080006;
-        public static final int send=0x7f080007;
-        public static final int send_intent_title=0x7f080008;
-        public static final int sending_message=0x7f080009;
-        public static final int share=0x7f08000a;
-        public static final int text_to_share=0x7f08000b;
-        public static final int to=0x7f08000c;
+        public static final int appName=0x7f080000;
+        public static final int app_name=0x7f080001;
+        public static final int body=0x7f080002;
+        public static final int explanation=0x7f080003;
+        public static final int hello=0x7f080004;
+        public static final int hint_body=0x7f080005;
+        public static final int intro_message=0x7f080006;
+        public static final int message_sent=0x7f080007;
+        public static final int send=0x7f080008;
+        public static final int send_intent_title=0x7f080009;
+        public static final int sending_message=0x7f08000a;
+        public static final int share=0x7f08000b;
+        public static final int text_to_share=0x7f08000c;
+        public static final int to=0x7f08000d;
     }
     public static final class style {
         public static final int AppTheme=0x7f060002;
