@@ -17,11 +17,16 @@
 package com.oosbt.majiang.control;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.os.Bundle;
+import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 import android.widget.Toolbar;
+
+import java.util.Locale;
 
 /**
  * Provides the landing screen of this sample. There is nothing particularly interesting here. All
@@ -30,6 +35,7 @@ import android.widget.Toolbar;
 public class MainActivity extends Activity {
 
     private EditText mEditBody;
+    private final int REQ_CODE_SPEECH_INPUT = 100;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +44,7 @@ public class MainActivity extends Activity {
         setActionBar((Toolbar) findViewById(R.id.toolbar));
         mEditBody = (EditText) findViewById(R.id.body);
         findViewById(R.id.share).setOnClickListener(mOnClickListener);
+        findViewById(R.id.stt).setOnClickListener(mOnClickListener);
     }
 
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
@@ -47,10 +54,26 @@ public class MainActivity extends Activity {
                 case R.id.share:
                     share();
                     break;
+                case R.id.stt:
+                    stt();
+                    break;
             }
         }
     };
-
+    private void stt() {
+        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
+                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.speechPrompt));
+        try {
+            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+        } catch (ActivityNotFoundException a) {
+            Toast.makeText(getApplicationContext(),
+                    getString(R.string.speechNotSupportedPrompt),
+                    Toast.LENGTH_SHORT).show();
+        }
+    }
     /**
      * Emits a sample share {@link Intent}.
      */

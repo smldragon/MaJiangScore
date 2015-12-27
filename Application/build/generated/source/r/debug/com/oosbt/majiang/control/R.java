@@ -149,10 +149,11 @@ containing a value of this type.
     public static final class id {
         public static final int body=0x7f090002;
         public static final int contact_name=0x7f090000;
-        public static final int list=0x7f090004;
-        public static final int message_body=0x7f090005;
-        public static final int send=0x7f090006;
-        public static final int share=0x7f090003;
+        public static final int list=0x7f090005;
+        public static final int message_body=0x7f090006;
+        public static final int send=0x7f090007;
+        public static final int share=0x7f090004;
+        public static final int stt=0x7f090003;
         public static final int toolbar=0x7f090001;
     }
     public static final class layout {
@@ -178,8 +179,11 @@ containing a value of this type.
         public static final int send_intent_title=0x7f080009;
         public static final int sending_message=0x7f08000a;
         public static final int share=0x7f08000b;
-        public static final int text_to_share=0x7f08000c;
-        public static final int to=0x7f08000d;
+        public static final int speechNotSupportedPrompt=0x7f08000c;
+        public static final int speechPrompt=0x7f08000d;
+        public static final int stt=0x7f08000e;
+        public static final int text_to_share=0x7f08000f;
+        public static final int to=0x7f080010;
     }
     public static final class style {
         public static final int AppTheme=0x7f060002;

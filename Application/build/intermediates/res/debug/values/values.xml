@@ -39,7 +39,7 @@
     <dimen name="vertical_page_margin">@dimen/margin_medium</dimen>
     <!-- From: file:/C:/Users/Frank/OneDrive/GitHub/AndroidStudioProjects/MaJiangScore/Application/src/main/res/values/strings.xml -->
     <eat-comment/>
-    <string name="appName">麻将计分</string>
+    <string name="appName">麻将计分程序4</string>
     <!-- From: file:/C:/Users/Frank/OneDrive/GitHub/AndroidStudioProjects/MaJiangScore/Application/src/main/res/values/base-strings.xml -->
     <eat-comment/>
     <string name="app_name">麻将计分</string>
@@ -70,7 +70,10 @@ directly in the list of share intent candidates.
     <string name="send">Send</string>
     <string name="send_intent_title">Send a message via:</string>
     <string name="sending_message">Sending a message</string>
-    <string name="share">Share</string>
+    <string name="share">分享</string>
+    <string name="speechNotSupportedPrompt">本机不支持语音识别</string>
+    <string name="speechPrompt">请说话</string>
+    <string name="stt">语音识别</string>
     <string name="text_to_share">Text to share</string>
     <string name="to">To:</string>
     <!-- From: file:/C:/Users/Frank/OneDrive/GitHub/AndroidStudioProjects/MaJiangScore/Application/src/main/res/values/template-styles.xml -->
