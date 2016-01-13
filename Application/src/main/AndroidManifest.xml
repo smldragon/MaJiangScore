@@ -14,10 +14,14 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
+
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oosbt.majiang.control"
     android:versionCode="1"
     android:versionName="1.0">
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -26,7 +30,7 @@
         android:theme="@style/DirectShareTheme">
 
         <activity
-            android:name="com.oosbt.majiang.control.MainActivity"
+            android:name="com.oosbt.majiang.control.AudioCapture"
             android:label="@string/appName">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -63,5 +67,6 @@
         </service>
 
     </application>
+
 
 </manifest>
