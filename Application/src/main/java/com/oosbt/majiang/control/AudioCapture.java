@@ -14,6 +14,7 @@ package com.oosbt.majiang.control;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.Resources;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
@@ -75,8 +76,12 @@ public class AudioCapture extends Activity {
 
     private void startRecording() {
         try {
+            Resources r = this.getResources();
+            MJUtils.requestDangerousPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                    r.getInteger(R.integer.REQUEST_CODE_PERMISSION_WRITE_EXTERNAL_STORAGE));
+            MJUtils.requestDangerousPermission(this, android.Manifest.permission.RECORD_AUDIO,
+                    r.getInteger(R.integer.REQUEST_CODE_PERMISSION_RECORD_AUDIO));
             mRecorder = new MediaRecorder();
-            mRecorder.reset();
             mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
             mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
             mRecorder.setOutputFile(mFileName);
@@ -85,13 +90,14 @@ public class AudioCapture extends Activity {
             mRecorder.prepare();
 
             mRecorder.start();
+
         } catch (IOException e) {
             Log.e(LOG_TAG, "prepare() failed", e);
         } catch (Exception e) {
             Log.e(LOG_TAG, "recoding failed", e);
         }
-    }
 
+    }
     private void stopRecording() {
         mRecorder.stop();
         mRecorder.release();
@@ -106,6 +112,7 @@ public class AudioCapture extends Activity {
     @Override
     public void onCreate(Bundle icicle) {
         super.onCreate(icicle);
+
         init();
 
         LinearLayout ll = new LinearLayout(this);
@@ -122,6 +129,7 @@ public class AudioCapture extends Activity {
                         ViewGroup.LayoutParams.WRAP_CONTENT,
                         0));
         setContentView(ll);
+
     }
 
     @Override
@@ -145,9 +153,9 @@ public class AudioCapture extends Activity {
             public void onClick(View v) {
                 onRecord(mStartRecording);
                 if (mStartRecording) {
-                    setText("Stop recording");
+                    setText("结束录音");
                 } else {
-                    setText("Start recording");
+                    setText("开始录音");
                 }
                 mStartRecording = !mStartRecording;
             }
@@ -155,7 +163,7 @@ public class AudioCapture extends Activity {
 
         public RecordButton(Context ctx) {
             super(ctx);
-            setText("Start recording");
+            setText("开始录音");
             setOnClickListener(clicker);
         }
     }
@@ -167,9 +175,9 @@ public class AudioCapture extends Activity {
             public void onClick(View v) {
                 onPlay(mStartPlaying);
                 if (mStartPlaying) {
-                    setText("Stop playing");
+                    setText("结束回放");
                 } else {
-                    setText("Start playing");
+                    setText("开始回放");
                 }
                 mStartPlaying = !mStartPlaying;
             }
@@ -177,7 +185,7 @@ public class AudioCapture extends Activity {
 
         public PlayButton(Context ctx) {
             super(ctx);
-            setText("Start playing");
+            setText("开始回放");
             setOnClickListener(clicker);
         }
     }

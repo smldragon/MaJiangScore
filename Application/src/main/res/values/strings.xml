@@ -27,6 +27,7 @@
     <string name="share">分享</string>
     <string name="stt">语音识别</string>
     <string name="speechPrompt">请说话</string>
+    <string name="playerEast">东</string>
     <string name="speechNotSupportedPrompt">本机不支持语音识别</string>
     <string name="send_intent_title">Send a message via:</string>
 

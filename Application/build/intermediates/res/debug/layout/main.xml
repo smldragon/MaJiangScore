@@ -58,14 +58,15 @@
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
         android:text="@string/stt" />
-    <Button
-        android:id="@+id/share"
-        android:layout_width="wrap_content"
+
+    <EditText
+        android:id="@+id/playerEast"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="end"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
-        android:text="@string/share" />
-
+        android:layout_marginTop="16dp"
+        android:hint="@string/playerEast"
+        android:text="@string/playerEast" />
 </LinearLayout>
 <!-- From: file:/C:/Users/Frank/OneDrive/GitHub/AndroidStudioProjects/MaJiangScore/Application/src/main/res/layout/main.xml -->

@@ -19,13 +19,17 @@ package com.oosbt.majiang.control;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.Toolbar;
 
+import java.util.ArrayList;
 import java.util.Locale;
 
 /**
@@ -35,7 +39,16 @@ import java.util.Locale;
 public class MainActivity extends Activity {
 
     private EditText mEditBody;
-    private final int REQ_CODE_SPEECH_INPUT = 100;
+    private View.OnClickListener mOnClickListener = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.stt:
+                    stt();
+                    break;
+            }
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,45 +56,47 @@ public class MainActivity extends Activity {
         setContentView(R.layout.main);
         setActionBar((Toolbar) findViewById(R.id.toolbar));
         mEditBody = (EditText) findViewById(R.id.body);
-        findViewById(R.id.share).setOnClickListener(mOnClickListener);
         findViewById(R.id.stt).setOnClickListener(mOnClickListener);
     }
 
-    private View.OnClickListener mOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.share:
-                    share();
-                    break;
-                case R.id.stt:
-                    stt();
-                    break;
-            }
-        }
-    };
     private void stt() {
+
+        Resources r = this.getResources();
+        MJUtils.requestDangerousPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE, r.getInteger(R.integer.REQUEST_CODE_PERMISSION_WRITE_EXTERNAL_STORAGE));
+        MJUtils.requestDangerousPermission(this, android.Manifest.permission.RECORD_AUDIO, r.getInteger(R.integer.REQUEST_CODE_PERMISSION_RECORD_AUDIO));
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault());
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.speechPrompt));
+        String language = Locale.US.toString();
+        String prompt = getString(R.string.speechPrompt);
+        Log.e("------DEBUG", "language=" + language + " prompt=" + prompt);
+        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, language);
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, prompt);
         try {
-            startActivityForResult(intent, REQ_CODE_SPEECH_INPUT);
+            startActivityForResult(intent, r.getInteger(R.integer.REQUEST_CODE_SPEECH_INPUT));
         } catch (ActivityNotFoundException a) {
             Toast.makeText(getApplicationContext(),
                     getString(R.string.speechNotSupportedPrompt),
                     Toast.LENGTH_SHORT).show();
         }
     }
-    /**
-     * Emits a sample share {@link Intent}.
-     */
-    private void share() {
-        Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-        sharingIntent.setType("text/plain");
-        sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, mEditBody.getText().toString());
-        startActivity(Intent.createChooser(sharingIntent, getString(R.string.send_intent_title)));
-    }
 
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Check which request we're responding to
+        Resources r = this.getResources();
+        if (requestCode == r.getInteger(R.integer.REQUEST_CODE_SPEECH_INPUT)) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+                for (int i = 0; i < matches.size(); i++) {
+                    Log.i("STT SUCCESS", "i=" + i + " text=" + matches.get(i));
+                }
+                TextView view = (TextView) findViewById(R.id.playerEast);
+                view.setText(matches.get(0));
+            } else {
+                Log.e("STT error", "谷歌返回语音翻译出错");
+            }
+        }
+    }
 }

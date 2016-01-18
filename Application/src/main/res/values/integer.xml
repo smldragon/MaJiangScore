@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <integer name="PERMISSIONS_REQUEST_RECORD_AUDIO">10001</integer>
-    <integer name="PERMISSIONS_REQUEST_WRITE_EXTERNAL_STORAGE">10002</integer>
+    <integer name="REQUEST_CODE_PERMISSION_RECORD_AUDIO">10001</integer>
+    <integer name="REQUEST_CODE_PERMISSION_WRITE_EXTERNAL_STORAGE">10002</integer>
+    <integer name="REQUEST_CODE_SPEECH_INPUT">10003</integer>
 </resources>

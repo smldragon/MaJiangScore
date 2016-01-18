@@ -23,8 +23,10 @@
         android:minSdkVersion="23"
         android:targetSdkVersion="23" />
 
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <permission android:name="android" />
+
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
 
     <application
         android:allowBackup="true"
@@ -32,7 +34,7 @@
         android:label="@string/app_name"
         android:theme="@style/DirectShareTheme" >
         <activity
-            android:name="com.oosbt.majiang.control.AudioCapture"
+            android:name="com.oosbt.majiang.control.MainActivity"
             android:label="@string/appName" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -40,23 +42,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
+
+        <!--
+        activity
             android:name="com.oosbt.majiang.control.SendMessageActivity"
             android:label="@string/appName"
-            android:theme="@style/DirectShareDialogTheme" >
+            android:theme="@style/DirectShareDialogTheme">
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
-
                 <category android:name="android.intent.category.DEFAULT" />
-
                 <data android:mimeType="text/plain" />
             </intent-filter>
-
             <meta-data
                 android:name="android.service.chooser.chooser_target_service"
                 android:value=".SampleChooserTargetService" />
-        </activity>
-        <activity
+        </activity
+        -->
+
+
+        <!--
+        activity
             android:name="com.oosbt.majiang.control.SelectContactActivity"
             android:label="@string/app_name"
             android:theme="@style/DirectShareDialogTheme" />
@@ -64,11 +69,13 @@
         <service
             android:name="com.oosbt.majiang.control.SampleChooserTargetService"
             android:label="@string/appName"
-            android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE" >
+            android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
             <intent-filter>
                 <action android:name="android.service.chooser.ChooserTargetService" />
             </intent-filter>
-        </service>
+        </service
+        -->
+
     </application>
 
 </manifest>

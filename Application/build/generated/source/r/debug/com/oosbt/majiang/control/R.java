@@ -147,14 +147,19 @@ containing a value of this type.
         public static final int tile=0x7f020000;
     }
     public static final class id {
-        public static final int body=0x7f090002;
-        public static final int contact_name=0x7f090000;
-        public static final int list=0x7f090005;
-        public static final int message_body=0x7f090006;
-        public static final int send=0x7f090007;
-        public static final int share=0x7f090004;
-        public static final int stt=0x7f090003;
-        public static final int toolbar=0x7f090001;
+        public static final int body=0x7f0a0002;
+        public static final int contact_name=0x7f0a0000;
+        public static final int list=0x7f0a0005;
+        public static final int message_body=0x7f0a0006;
+        public static final int playerEast=0x7f0a0004;
+        public static final int send=0x7f0a0007;
+        public static final int stt=0x7f0a0003;
+        public static final int toolbar=0x7f0a0001;
+    }
+    public static final class integer {
+        public static final int REQUEST_CODE_PERMISSION_RECORD_AUDIO=0x7f080000;
+        public static final int REQUEST_CODE_PERMISSION_WRITE_EXTERNAL_STORAGE=0x7f080001;
+        public static final int REQUEST_CODE_SPEECH_INPUT=0x7f080002;
     }
     public static final class layout {
         public static final int contact=0x7f040000;
@@ -167,23 +172,24 @@ containing a value of this type.
         public static final int logo_avatar=0x7f030001;
     }
     public static final class string {
-        public static final int appName=0x7f080000;
-        public static final int app_name=0x7f080001;
-        public static final int body=0x7f080002;
-        public static final int explanation=0x7f080003;
-        public static final int hello=0x7f080004;
-        public static final int hint_body=0x7f080005;
-        public static final int intro_message=0x7f080006;
-        public static final int message_sent=0x7f080007;
-        public static final int send=0x7f080008;
-        public static final int send_intent_title=0x7f080009;
-        public static final int sending_message=0x7f08000a;
-        public static final int share=0x7f08000b;
-        public static final int speechNotSupportedPrompt=0x7f08000c;
-        public static final int speechPrompt=0x7f08000d;
-        public static final int stt=0x7f08000e;
-        public static final int text_to_share=0x7f08000f;
-        public static final int to=0x7f080010;
+        public static final int appName=0x7f090000;
+        public static final int app_name=0x7f090001;
+        public static final int body=0x7f090002;
+        public static final int explanation=0x7f090003;
+        public static final int hello=0x7f090004;
+        public static final int hint_body=0x7f090005;
+        public static final int intro_message=0x7f090006;
+        public static final int message_sent=0x7f090007;
+        public static final int playerEast=0x7f090008;
+        public static final int send=0x7f090009;
+        public static final int send_intent_title=0x7f09000a;
+        public static final int sending_message=0x7f09000b;
+        public static final int share=0x7f09000c;
+        public static final int speechNotSupportedPrompt=0x7f09000d;
+        public static final int speechPrompt=0x7f09000e;
+        public static final int stt=0x7f09000f;
+        public static final int text_to_share=0x7f090010;
+        public static final int to=0x7f090011;
     }
     public static final class style {
         public static final int AppTheme=0x7f060002;

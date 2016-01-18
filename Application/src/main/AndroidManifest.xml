@@ -37,7 +37,7 @@
             </intent-filter>
         </activity>
 
-        <activity
+        <!--activity
             android:name="com.oosbt.majiang.control.SendMessageActivity"
             android:label="@string/appName"
             android:theme="@style/DirectShareDialogTheme">
@@ -49,9 +49,9 @@
             <meta-data
                 android:name="android.service.chooser.chooser_target_service"
                 android:value=".SampleChooserTargetService" />
-        </activity>
+        </activity -->
 
-        <activity
+        <!-- activity
             android:name="com.oosbt.majiang.control.SelectContactActivity"
             android:label="@string/app_name"
             android:theme="@style/DirectShareDialogTheme" />
@@ -63,7 +63,7 @@
             <intent-filter>
                 <action android:name="android.service.chooser.ChooserTargetService" />
             </intent-filter>
-        </service>
+        </service -->
 
     </application>
 
