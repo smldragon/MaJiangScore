@@ -16,6 +16,7 @@
 
 package com.oosbt.majiang.control;
 
+import android.Manifest;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
@@ -38,7 +39,10 @@ import java.util.Locale;
  */
 public class MainActivity extends Activity {
 
+    private static final Locale DefaultVoiceLanguage = Locale.SIMPLIFIED_CHINESE;
     private EditText mEditBody;
+    private TextView voiceRecongMessageView;
+    private Locale localLanguage;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -50,9 +54,21 @@ public class MainActivity extends Activity {
         }
     };
 
+    public Locale getLocalLanguage() {
+        if (localLanguage == null) {
+            localLanguage = DefaultVoiceLanguage;
+        }
+        return localLanguage;
+    }
+
+    public void setLocalLanguage(Locale localLanguage) {
+        this.localLanguage = localLanguage;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        voiceRecongMessageView = (TextView) findViewById(R.id.playerEast);
         setContentView(R.layout.main);
         setActionBar((Toolbar) findViewById(R.id.toolbar));
         mEditBody = (EditText) findViewById(R.id.body);
@@ -64,12 +80,15 @@ public class MainActivity extends Activity {
         Resources r = this.getResources();
         MJUtils.requestDangerousPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE, r.getInteger(R.integer.REQUEST_CODE_PERMISSION_WRITE_EXTERNAL_STORAGE));
         MJUtils.requestDangerousPermission(this, android.Manifest.permission.RECORD_AUDIO, r.getInteger(R.integer.REQUEST_CODE_PERMISSION_RECORD_AUDIO));
+        MJUtils.requestDangerousPermission(this, android.Manifest.permission.ACCESS_NETWORK_STATE, r.getInteger(R.integer.REQUEST_CODE_SPEECH_INPUT));
+        MJUtils.requestDangerousPermission(this, Manifest.permission.INTERNET, r.getInteger(R.integer.REQUEST_CODE_SPEECH_INPUT));
+
+
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
                 RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        String language = Locale.US.toString();
+        String language = this.getLocalLanguage().toString();
         String prompt = getString(R.string.speechPrompt);
-        Log.e("------DEBUG", "language=" + language + " prompt=" + prompt);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, language);
         intent.putExtra(RecognizerIntent.EXTRA_PROMPT, prompt);
         try {
@@ -92,10 +111,14 @@ public class MainActivity extends Activity {
                 for (int i = 0; i < matches.size(); i++) {
                     Log.i("STT SUCCESS", "i=" + i + " text=" + matches.get(i));
                 }
-                TextView view = (TextView) findViewById(R.id.playerEast);
-                view.setText(matches.get(0));
+
+                String text = matches.get(0);
+                voiceRecongMessageView.setText(text);
+                Log.e("STT succeeded!", text);
             } else {
-                Log.e("STT error", "谷歌返回语音翻译出错");
+                String err = "谷歌返回语音翻译出错";
+                voiceRecongMessageView.setText(err);
+                Log.e("STT error", err);
             }
         }
     }
