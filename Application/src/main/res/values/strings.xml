@@ -22,7 +22,7 @@
         This app demonstrates how to implement Direct Share. Use some other app and share a text.
         For your convenience, you can also use the input below to share the text.
     </string>
-    <string name="appName">麻将计分程序(测试版)</string>
+    <string name="appName">麻将计分程序(v1.0 B2016012001)</string>
     <string name="hello">欢迎使用</string>
     <string name="share">分享</string>
     <string name="stt">语音识别</string>
