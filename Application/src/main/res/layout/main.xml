@@ -40,16 +40,6 @@
         android:layout_height="1dp"
         android:background="@android:color/darker_gray" />
 
-    <EditText
-        android:id="@+id/body"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:hint="@string/text_to_share"
-        android:text="@string/hello" />
-
     <Button
         android:id="@+id/stt"
         android:layout_width="wrap_content"
@@ -68,4 +58,34 @@
         android:layout_marginTop="16dp"
         android:hint="@string/playerEast"
         android:text="@string/playerEast" />
+
+    <EditText
+        android:id="@+id/playerSouth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/playerSouth"
+        android:text="@string/playerSouth" />
+
+    <EditText
+        android:id="@+id/playerWest"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/playerWest"
+        android:text="@string/playerWest" />
+
+    <EditText
+        android:id="@+id/playerNorth"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:hint="@string/playerNorth"
+        android:text="@string/playerNorth" />
 </LinearLayout>
