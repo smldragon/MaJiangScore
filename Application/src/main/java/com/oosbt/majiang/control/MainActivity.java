@@ -16,33 +16,21 @@
 
 package com.oosbt.majiang.control;
 
-import android.Manifest;
-import android.app.Activity;
-import android.content.ActivityNotFoundException;
-import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.speech.RecognizerIntent;
-import android.util.Log;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.widget.Toolbar;
 
-import java.util.ArrayList;
-import java.util.Locale;
+import com.oosbt.majiang.model.SttResult;
 
 /**
  * Provides the landing screen of this sample. There is nothing particularly interesting here. All
  * the codes related to the Direct Share feature are in {@link SampleChooserTargetService}.
  */
-public class MainActivity extends Activity {
+public class MainActivity extends VoiceInputActivity {
 
-    private static final Locale DefaultVoiceLanguage = Locale.SIMPLIFIED_CHINESE;
-    private EditText mEditBody;
-    private TextView voiceRecongMessageView;
-    private Locale localLanguage;
+    private TextView east, west, south, north;
     private View.OnClickListener mOnClickListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -54,72 +42,61 @@ public class MainActivity extends Activity {
         }
     };
 
-    public Locale getLocalLanguage() {
-        if (localLanguage == null) {
-            localLanguage = DefaultVoiceLanguage;
-        }
-        return localLanguage;
-    }
 
-    public void setLocalLanguage(Locale localLanguage) {
-        this.localLanguage = localLanguage;
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        voiceRecongMessageView = (TextView) findViewById(R.id.playerEast);
+
         setContentView(R.layout.main);
+
+        Resources r = this.getResources();
+        String title = r.getString(R.string.appName) + r.getString(R.string.appVersion);
+        this.setTitle(title);
+
+        east = (TextView) findViewById(R.id.playerEast);
+        south = (TextView) findViewById(R.id.playerSouth);
+        west = (TextView) findViewById(R.id.playerWest);
+        north = (TextView) findViewById(R.id.playerNorth);
+
         setActionBar((Toolbar) findViewById(R.id.toolbar));
-        mEditBody = (EditText) findViewById(R.id.body);
         findViewById(R.id.stt).setOnClickListener(mOnClickListener);
     }
 
     private void stt() {
 
-        Resources r = this.getResources();
-        MJUtils.requestDangerousPermission(this, android.Manifest.permission.WRITE_EXTERNAL_STORAGE, r.getInteger(R.integer.REQUEST_CODE_PERMISSION_WRITE_EXTERNAL_STORAGE));
-        MJUtils.requestDangerousPermission(this, android.Manifest.permission.RECORD_AUDIO, r.getInteger(R.integer.REQUEST_CODE_PERMISSION_RECORD_AUDIO));
-        MJUtils.requestDangerousPermission(this, android.Manifest.permission.ACCESS_NETWORK_STATE, r.getInteger(R.integer.REQUEST_CODE_SPEECH_INPUT));
-        MJUtils.requestDangerousPermission(this, Manifest.permission.INTERNET, r.getInteger(R.integer.REQUEST_CODE_SPEECH_INPUT));
+        setPosition("playerEast");
+        setPosition("playerWest");
+        setPosition("playerSouth");
+        setPosition("playerNorth");
 
-
-        Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,
-                RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
-        String language = this.getLocalLanguage().toString();
-        String prompt = getString(R.string.speechPrompt);
-        intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, language);
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, prompt);
-        try {
-            startActivityForResult(intent, r.getInteger(R.integer.REQUEST_CODE_SPEECH_INPUT));
-        } catch (ActivityNotFoundException a) {
-            Toast.makeText(getApplicationContext(),
-                    getString(R.string.speechNotSupportedPrompt),
-                    Toast.LENGTH_SHORT).show();
-        }
     }
 
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        // Check which request we're responding to
-        Resources r = this.getResources();
-        if (requestCode == r.getInteger(R.integer.REQUEST_CODE_SPEECH_INPUT)) {
-            // Make sure the request was successful
-            if (resultCode == RESULT_OK) {
-                ArrayList<String> matches = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
-                for (int i = 0; i < matches.size(); i++) {
-                    Log.i("STT SUCCESS", "i=" + i + " text=" + matches.get(i));
-                }
+    private void setPosition(String name) {
 
-                String text = matches.get(0);
-                voiceRecongMessageView.setText(text);
-                Log.e("STT succeeded!", text);
+        Resources r = this.getResources();
+        int resID = getResources().getIdentifier(name, "id", getPackageName());
+        TextView view = ((TextView) findViewById(resID));
+
+        //   resID = getResources().getIdentifier(name, "string", getPackageName());
+        //  String position = getString(resID);
+        String position = "";
+        boolean toContinue = true;
+        while (toContinue) {
+
+            SttResult sttResult = prepareRecgonizedText();
+            String text;
+            String err = sttResult.getErrMsg();
+            if (err == null) {
+
+                text = position + ":" + sttResult.getRecgonizedText();
+                toContinue = false;
             } else {
-                String err = "谷歌返回语音翻译出错";
-                voiceRecongMessageView.setText(err);
-                Log.e("STT error", err);
+
+                text = "错误:" + err + ".请重试！";
             }
+            view.setText(text);
         }
+
     }
 }
