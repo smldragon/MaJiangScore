@@ -144,22 +144,36 @@ containing a value of this type.
         public static final int vertical_page_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int tile=0x7f020000;
+        public static final int bc1=0x7f020000;
+        public static final int blu1=0x7f020001;
+        public static final int blu12=0x7f020002;
+        public static final int bro1=0x7f020003;
+        public static final int btn1=0x7f020004;
+        public static final int btn2=0x7f020005;
+        public static final int btn3=0x7f020006;
+        public static final int btn4=0x7f020007;
+        public static final int btn5=0x7f020008;
+        public static final int btn6=0x7f020009;
+        public static final int btnon=0x7f02000a;
+        public static final int tile=0x7f02000b;
     }
     public static final class id {
-        public static final int body=0x7f0a0002;
         public static final int contact_name=0x7f0a0000;
-        public static final int list=0x7f0a0005;
-        public static final int message_body=0x7f0a0006;
-        public static final int playerEast=0x7f0a0004;
-        public static final int send=0x7f0a0007;
-        public static final int stt=0x7f0a0003;
+        public static final int list=0x7f0a0007;
+        public static final int message_body=0x7f0a0008;
+        public static final int playerEast=0x7f0a0005;
+        public static final int playerNorth=0x7f0a0003;
+        public static final int playerSouth=0x7f0a0006;
+        public static final int playerWest=0x7f0a0004;
+        public static final int send=0x7f0a0009;
+        public static final int stt=0x7f0a0002;
         public static final int toolbar=0x7f0a0001;
     }
     public static final class integer {
-        public static final int REQUEST_CODE_PERMISSION_RECORD_AUDIO=0x7f080000;
-        public static final int REQUEST_CODE_PERMISSION_WRITE_EXTERNAL_STORAGE=0x7f080001;
-        public static final int REQUEST_CODE_SPEECH_INPUT=0x7f080002;
+        public static final int REQUEST_CODE_PERMISSION_INTERNET=0x7f080000;
+        public static final int REQUEST_CODE_PERMISSION_RECORD_AUDIO=0x7f080001;
+        public static final int REQUEST_CODE_PERMISSION_WRITE_EXTERNAL_STORAGE=0x7f080002;
+        public static final int REQUEST_CODE_SPEECH_INPUT=0x7f080003;
     }
     public static final class layout {
         public static final int contact=0x7f040000;
@@ -173,23 +187,25 @@ containing a value of this type.
     }
     public static final class string {
         public static final int appName=0x7f090000;
-        public static final int app_name=0x7f090001;
-        public static final int body=0x7f090002;
-        public static final int explanation=0x7f090003;
-        public static final int hello=0x7f090004;
+        public static final int appVersion=0x7f090001;
+        public static final int app_name=0x7f090002;
+        public static final int body=0x7f090003;
+        public static final int explanation=0x7f090004;
         public static final int hint_body=0x7f090005;
         public static final int intro_message=0x7f090006;
         public static final int message_sent=0x7f090007;
         public static final int playerEast=0x7f090008;
-        public static final int send=0x7f090009;
-        public static final int send_intent_title=0x7f09000a;
-        public static final int sending_message=0x7f09000b;
-        public static final int share=0x7f09000c;
-        public static final int speechNotSupportedPrompt=0x7f09000d;
-        public static final int speechPrompt=0x7f09000e;
-        public static final int stt=0x7f09000f;
-        public static final int text_to_share=0x7f090010;
-        public static final int to=0x7f090011;
+        public static final int playerNorth=0x7f090009;
+        public static final int playerSouth=0x7f09000a;
+        public static final int playerWest=0x7f09000b;
+        public static final int send=0x7f09000c;
+        public static final int send_intent_title=0x7f09000d;
+        public static final int sending_message=0x7f09000e;
+        public static final int speechNotSupportedPrompt=0x7f09000f;
+        public static final int speechPrompt=0x7f090010;
+        public static final int stt=0x7f090011;
+        public static final int text_to_share=0x7f090012;
+        public static final int to=0x7f090013;
     }
     public static final class style {
         public static final int AppTheme=0x7f060002;
