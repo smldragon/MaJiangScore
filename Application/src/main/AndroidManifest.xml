@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
  Copyright 2015 The Android Open Source Project
 
@@ -14,29 +14,33 @@
  See the License for the specific language governing permissions and
  limitations under the License.
 -->
-
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.oosbt.majiang.control"
     android:versionCode="1"
-    android:versionName="1.0">
+    android:versionName="1.0" >
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/appName"
-        android:theme="@style/DirectShareTheme">
-
+        android:theme="@style/DirectShareTheme" >
         <activity
-            android:name="com.oosbt.majiang.control.MainActivity"
-            android:label="@string/appName">
+            android:name=".MainActivity"
+            android:label="@string/appName" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <!--activity
+        <!--
+        activity
             android:name="com.oosbt.majiang.control.SendMessageActivity"
             android:label="@string/appName"
             android:theme="@style/DirectShareDialogTheme">
@@ -48,9 +52,12 @@
             <meta-data
                 android:name="android.service.chooser.chooser_target_service"
                 android:value=".SampleChooserTargetService" />
-        </activity -->
+        </activity
+        -->
 
-        <!-- activity
+
+        <!--
+        activity
             android:name="com.oosbt.majiang.control.SelectContactActivity"
             android:label="@string/app_name"
             android:theme="@style/DirectShareDialogTheme" />
@@ -62,12 +69,9 @@
             <intent-filter>
                 <action android:name="android.service.chooser.ChooserTargetService" />
             </intent-filter>
-        </service -->
+        </service
+        -->
 
     </application>
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.RECORD_AUDIO" />
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 </manifest>
