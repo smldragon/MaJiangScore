@@ -144,30 +144,19 @@ containing a value of this type.
         public static final int vertical_page_margin=0x7f050001;
     }
     public static final class drawable {
-        public static final int bc1=0x7f020000;
-        public static final int blu1=0x7f020001;
-        public static final int blu12=0x7f020002;
-        public static final int bro1=0x7f020003;
-        public static final int btn1=0x7f020004;
-        public static final int btn2=0x7f020005;
-        public static final int btn3=0x7f020006;
-        public static final int btn4=0x7f020007;
-        public static final int btn5=0x7f020008;
-        public static final int btn6=0x7f020009;
-        public static final int btnon=0x7f02000a;
-        public static final int tile=0x7f02000b;
+        public static final int bc02=0x7f020000;
+        public static final int bc1=0x7f020001;
+        public static final int blu1=0x7f020002;
+        public static final int blu12=0x7f020003;
+        public static final int bro1=0x7f020004;
+        public static final int tile=0x7f020005;
     }
     public static final class id {
-        public static final int contact_name=0x7f0a0000;
-        public static final int list=0x7f0a0007;
-        public static final int message_body=0x7f0a0008;
-        public static final int playerEast=0x7f0a0005;
-        public static final int playerNorth=0x7f0a0003;
-        public static final int playerSouth=0x7f0a0006;
-        public static final int playerWest=0x7f0a0004;
-        public static final int send=0x7f0a0009;
-        public static final int stt=0x7f0a0002;
-        public static final int toolbar=0x7f0a0001;
+        public static final int playerEast=0x7f0a0003;
+        public static final int playerNorth=0x7f0a0001;
+        public static final int playerSouth=0x7f0a0004;
+        public static final int playerWest=0x7f0a0002;
+        public static final int stt=0x7f0a0000;
     }
     public static final class integer {
         public static final int REQUEST_CODE_PERMISSION_INTERNET=0x7f080000;
@@ -176,10 +165,7 @@ containing a value of this type.
         public static final int REQUEST_CODE_SPEECH_INPUT=0x7f080003;
     }
     public static final class layout {
-        public static final int contact=0x7f040000;
-        public static final int main=0x7f040001;
-        public static final int select_contact=0x7f040002;
-        public static final int send_message=0x7f040003;
+        public static final int main=0x7f040000;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;
@@ -212,13 +198,11 @@ containing a value of this type.
         public static final int CardView=0x7f060003;
         public static final int CardView_Dark=0x7f060004;
         public static final int CardView_Light=0x7f060005;
-        public static final int DirectShareDialogTheme=0x7f060006;
-        public static final int DirectShareTheme=0x7f060007;
         public static final int Theme_Base=0x7f060001;
-        public static final int Theme_Sample=0x7f060008;
-        public static final int Widget=0x7f060009;
+        public static final int Theme_Sample=0x7f060006;
+        public static final int Widget=0x7f060007;
         public static final int Widget_SampleMessage=0x7f060000;
-        public static final int Widget_SampleMessageTile=0x7f06000a;
+        public static final int Widget_SampleMessageTile=0x7f060008;
     }
     public static final class styleable {
         /** Attributes that can be used with a CardView.

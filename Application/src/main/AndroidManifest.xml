@@ -25,7 +25,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/appName"
-        android:theme="@style/DirectShareTheme">
+        >
 
         <activity
             android:name="com.oosbt.majiang.control.MainActivity"
@@ -35,34 +35,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
-        <!--activity
-            android:name="com.oosbt.majiang.control.SendMessageActivity"
-            android:label="@string/appName"
-            android:theme="@style/DirectShareDialogTheme">
-            <intent-filter>
-                <action android:name="android.intent.action.SEND" />
-                <category android:name="android.intent.category.DEFAULT" />
-                <data android:mimeType="text/plain" />
-            </intent-filter>
-            <meta-data
-                android:name="android.service.chooser.chooser_target_service"
-                android:value=".SampleChooserTargetService" />
-        </activity -->
-
-        <!-- activity
-            android:name="com.oosbt.majiang.control.SelectContactActivity"
-            android:label="@string/app_name"
-            android:theme="@style/DirectShareDialogTheme" />
-
-        <service
-            android:name="com.oosbt.majiang.control.SampleChooserTargetService"
-            android:label="@string/appName"
-            android:permission="android.permission.BIND_CHOOSER_TARGET_SERVICE">
-            <intent-filter>
-                <action android:name="android.service.chooser.ChooserTargetService" />
-            </intent-filter>
-        </service -->
 
     </application>
 

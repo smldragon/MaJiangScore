@@ -20,7 +20,6 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
-import android.widget.Toolbar;
 
 import com.oosbt.majiang.model.SttResult;
 
@@ -59,7 +58,7 @@ public class MainActivity extends VoiceInputActivity {
         west = (TextView) findViewById(R.id.playerWest);
         north = (TextView) findViewById(R.id.playerNorth);
 
-        setActionBar((Toolbar) findViewById(R.id.toolbar));
+        //setActionBar((Toolbar) findViewById(R.id.toolbar));
         findViewById(R.id.stt).setOnClickListener(mOnClickListener);
     }
 
