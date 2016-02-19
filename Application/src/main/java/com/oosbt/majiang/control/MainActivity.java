@@ -18,29 +18,22 @@ package com.oosbt.majiang.control;
 
 import android.content.res.Resources;
 import android.os.Bundle;
-import android.view.View;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.oosbt.majiang.model.SttResult;
 
-/**
- * Provides the landing screen of this sample. There is nothing particularly interesting here. All
- * the codes related to the Direct Share feature are in {@link SampleChooserTargetService}.
- */
 public class MainActivity extends VoiceInputActivity {
 
     private TextView east, west, south, north;
-    private View.OnClickListener mOnClickListener = new View.OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.stt:
-                    stt();
-                    break;
-            }
-        }
-    };
+    private PositionListener positionListener;
 
+    private PositionListener getPositionListener() {
+        if ( positionListener == null) {
+            positionListener = new PositionListener(this);
+        }
+        return positionListener;
+    }
 
 
     @Override
@@ -59,7 +52,8 @@ public class MainActivity extends VoiceInputActivity {
         north = (TextView) findViewById(R.id.playerNorth);
 
         //setActionBar((Toolbar) findViewById(R.id.toolbar));
-        findViewById(R.id.stt).setOnClickListener(mOnClickListener);
+//        findViewById(R.id.stt).setOnClickListener(mOnClickListener);
+        stt();
     }
 
     private void stt() {
@@ -77,8 +71,10 @@ public class MainActivity extends VoiceInputActivity {
         int resID = getResources().getIdentifier(name, "id", getPackageName());
         TextView view = ((TextView) findViewById(resID));
 
-        //   resID = getResources().getIdentifier(name, "string", getPackageName());
-        //  String position = getString(resID);
+        int buttonResID = getResources().getIdentifier(name+"Btn", "id", getPackageName());
+        ImageButton button = (ImageButton)findViewById(buttonResID);
+        button.setOnClickListener(getPositionListener());
+
         String position = "";
         boolean toContinue = true;
         while (toContinue) {

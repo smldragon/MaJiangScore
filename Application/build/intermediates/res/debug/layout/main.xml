@@ -48,6 +48,7 @@
 
 
         <ImageButton
+            android:id="@+id/playerNorthBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="2"
@@ -81,6 +82,7 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:id="@+id/playerWestBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/blu1" />
@@ -109,6 +111,7 @@
             android:orientation="vertical">
 
             <ImageButton
+                android:id="@+id/playerEastBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/blu1" />
@@ -134,6 +137,7 @@
         android:orientation="vertical">
 
         <ImageButton
+            android:id="@+id/playerSouthBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"

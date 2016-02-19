@@ -2,8 +2,7 @@ package com.oosbt.majiang.model;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.Vector;
 
 /**
  * Created by Frank on 2016/1/24.
@@ -15,7 +14,7 @@ public enum Position {
     South("playerSouth"),
     North("playerNorth");
 
-    private static final Map<String, Position> lookupMap = new ConcurrentHashMap<>();
+    private static final List<Position> lookup = new Vector<>();
     private final String handler;
     private Player player;
 
@@ -23,18 +22,30 @@ public enum Position {
         this.handler = handler;
     }
 
+    /**
+     * 如果handler包含位置的名称，就返回该位置。如给“PlayerEastButton”，就返回East
+     * @param handler
+     * @return
+     */
     public static Position findPosition(String handler) {
-        if (lookupMap.size() == 0) {
-            synchronized (lookupMap) {
-                if (lookupMap.size() == 0) {
+        if (lookup.size() == 0) {
+            synchronized (lookup) {
+                if (lookup.size() == 0) {
                     Position[] consts = Position.values();
                     for (Position pos : consts) {
-                        lookupMap.put(pos.getHandler().toLowerCase(), pos);
+                        lookup.add(pos);
                     }
                 }
             }
         }
-        return lookupMap.get(handler.toLowerCase());
+
+        for (Position pos : lookup) {
+            String posHandler = pos.getHandler().toLowerCase();
+            if ( handler.toLowerCase().indexOf(posHandler) >=0) {
+                return pos;
+            }
+        }
+        return null;
     }
 
     /**
