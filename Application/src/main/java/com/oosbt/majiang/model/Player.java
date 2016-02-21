@@ -10,6 +10,9 @@ public class Player {
     private int id;
 
     public String getLname() {
+        if ( lname == null) {
+            lname = "";
+        }
         return lname;
     }
 
@@ -34,6 +37,9 @@ public class Player {
     }
 
     public String getFname() {
+        if ( fname == null) {
+            fname = "";
+        }
         return fname;
     }
 

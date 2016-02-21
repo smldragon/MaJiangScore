@@ -1,5 +1,7 @@
 package com.oosbt.majiang.model;
 
+import android.util.Pair;
+
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +11,7 @@ import java.util.List;
  */
 abstract public class ScoreKeeperAbstract implements ScoreKeeper {
 
-    protected final List<Position> allPositions = Position.getPositionArrangementOrder();
+    protected final List<Position> allROPositions = Position.getROPositionList();
     private final List<Pai> pais = new ArrayList<>();
 
     /**
@@ -38,12 +40,11 @@ abstract public class ScoreKeeperAbstract implements ScoreKeeper {
      * @param winningPos
      * @param winningPoints: 每个输方要输的钱。
      */
-    @Override
     public void score(Position winningPos, double winningPoints) {
 
         Pai pai = addNewPai();
         pai.addScore(winningPos,winningPoints*3); //赢方赢三方
-        for(Position losingPos: allPositions) {
+        for(Position losingPos: allROPositions) {
             if ( losingPos.equals(winningPos)) {
                 continue;
             }
@@ -52,36 +53,16 @@ abstract public class ScoreKeeperAbstract implements ScoreKeeper {
     }
 
     @Override
-    public void score(Position losingPos1, double losingPoints1,
-                         Position losingPos2, double losingPoints2, Position losingPos3, double losingPoints3) {
+    public void score(List<Pair<Position,Double>> posScoreList) {
 
         Pai pai = addNewPai();
-        double winningPoints = losingPoints1 + losingPoints2 + losingPoints3;
-        Position winningPos = getTheForthPosition(losingPos1,losingPos2,losingPos3);
-        pai.addScore(winningPos, winningPoints);
-        pai.addScore(losingPos1, (-1.0d*losingPoints1));
-        pai.addScore(losingPos2, (-1.0d*losingPoints2));
-        pai.addScore(losingPos3, (-1.0d*losingPoints3));
-    }
-
-    /**
-     * @param pos1
-     * @param pos2
-     * @param pos3
-     * @return返回pos1, pos2,pos3外的第四方的位置
-     */
-    private Position getTheForthPosition(Position pos1, Position pos2, Position pos3) {
-
-        //找到赢方并设置赢方分数
-        for(Position pos: allPositions) {
-            if ( pos.equals(pos1) == false && pos.equals(pos2) == false &&
-                    pos.equals(pos3) == false) {
-
-                return pos;
-            }
+        for(Pair<Position,Double> posScore: posScoreList) {
+            Position pos = posScore.first;
+            double points = posScore.second;
+            pai.addScore(pos, points);
         }
-        return null;
     }
+
 
     private Pai addNewPai() {
         Pai pai = new Pai();

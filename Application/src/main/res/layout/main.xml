@@ -16,20 +16,24 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="#FFFFFFFF"
+    android:orientation="vertical"
+    android:weightSum="1">
 
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="@string/explanation"
-        />
+        android:layout_weight="0.19"
+        android:background="#FF2A8AEA"
+
+        android:text="@string/explanation" />
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
-         />
+        android:layout_height="1dp" />
+
 
     <Button
         android:id="@+id/stt"
@@ -38,6 +42,7 @@
         android:layout_gravity="end"
         android:layout_marginEnd="16dp"
         android:layout_marginStart="16dp"
+        android:layout_marginTop="1dp"
         android:text="@string/stt" />
 
     <TableLayout
@@ -52,9 +57,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="2"
+            android:background="#00000000"
             android:src="@drawable/blu1" />
 
-        <EditText
+        <TextView
             android:id="@+id/playerNorth"
             android:layout_height="wrap_content"
             android:layout_column="3"
@@ -85,9 +91,10 @@
                 android:id="@+id/playerWestBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#00000000"
                 android:src="@drawable/blu1" />
 
-            <EditText
+            <TextView
                 android:id="@+id/playerWest"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -100,23 +107,26 @@
         </TableLayout>
 
         <ImageView
-            android:layout_width="178dp"
-            android:layout_height="177dp"
-            android:src="@drawable/bc02" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:src="@drawable/desktop" />
 
         <TableLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
+            android:background="#00000000"
             android:orientation="vertical">
 
             <ImageButton
                 android:id="@+id/playerEastBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="#00000000"
                 android:src="@drawable/blu1" />
 
-            <EditText
+            <TextView
                 android:id="@+id/playerEast"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -141,8 +151,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
+            android:background="#00000000"
             android:src="@drawable/blu1" />
-        <EditText
+        <TextView
             android:id="@+id/playerSouth"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

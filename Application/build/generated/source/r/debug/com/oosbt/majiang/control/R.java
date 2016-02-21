@@ -149,17 +149,22 @@ containing a value of this type.
         public static final int blu1=0x7f020002;
         public static final int blu12=0x7f020003;
         public static final int bro1=0x7f020004;
-        public static final int tile=0x7f020005;
+        public static final int desktop=0x7f020005;
+        public static final int tile=0x7f020006;
     }
     public static final class id {
         public static final int playerEast=0x7f0a0006;
         public static final int playerEastBtn=0x7f0a0005;
+        public static final int playerEastScore=0x7f0a0009;
         public static final int playerNorth=0x7f0a0002;
         public static final int playerNorthBtn=0x7f0a0001;
+        public static final int playerNorthScore=0x7f0a000c;
         public static final int playerSouth=0x7f0a0008;
         public static final int playerSouthBtn=0x7f0a0007;
+        public static final int playerSouthScore=0x7f0a000a;
         public static final int playerWest=0x7f0a0004;
         public static final int playerWestBtn=0x7f0a0003;
+        public static final int playerWestScore=0x7f0a000b;
         public static final int stt=0x7f0a0000;
     }
     public static final class integer {
@@ -170,6 +175,7 @@ containing a value of this type.
     }
     public static final class layout {
         public static final int main=0x7f040000;
+        public static final int score_input=0x7f040001;
     }
     public static final class mipmap {
         public static final int ic_launcher=0x7f030000;

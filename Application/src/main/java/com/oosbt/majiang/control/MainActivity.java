@@ -21,7 +21,8 @@ import android.os.Bundle;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.oosbt.majiang.model.SttResult;
+import com.oosbt.majiang.model.Player;
+import com.oosbt.majiang.model.Position;
 
 public class MainActivity extends VoiceInputActivity {
 
@@ -75,8 +76,8 @@ public class MainActivity extends VoiceInputActivity {
         ImageButton button = (ImageButton)findViewById(buttonResID);
         button.setOnClickListener(getPositionListener());
 
-        String position = "";
-        boolean toContinue = true;
+        Position position = Position.findPosition(name);
+       /* boolean toContinue = true;
         while (toContinue) {
 
             SttResult sttResult = prepareRecgonizedText();
@@ -91,7 +92,8 @@ public class MainActivity extends VoiceInputActivity {
                 text = "错误:" + err + ".请重试！";
             }
             view.setText(text);
-        }
-
+        }*/
+        Player player =  position.getPlayer();
+        view.setText(player.getLname()+player.getFname());
     }
 }
